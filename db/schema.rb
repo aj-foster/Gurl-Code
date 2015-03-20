@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150320042437) do
+ActiveRecord::Schema.define(version: 20150320042800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,20 @@ ActiveRecord::Schema.define(version: 20150320042437) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
+
+  create_table "submissions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "code_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "graphic_file_name"
+    t.string   "graphic_content_type"
+    t.integer  "graphic_file_size"
+    t.datetime "graphic_updated_at"
+  end
+
+  add_index "submissions", ["code_id"], name: "index_submissions_on_code_id", using: :btree
+  add_index "submissions", ["user_id"], name: "index_submissions_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -47,4 +61,6 @@ ActiveRecord::Schema.define(version: 20150320042437) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "submissions", "codes"
+  add_foreign_key "submissions", "users"
 end
