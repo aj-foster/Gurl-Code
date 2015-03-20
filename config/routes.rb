@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # root 'pages#home'
   root 'pages#coming_soon'
 
+  resources :codes, only: [:index, :new, :create, :edit, :update, :destroy]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
