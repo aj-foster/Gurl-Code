@@ -39,6 +39,7 @@ gem 'paperclip'
 # gem 'unicorn'
 
 # Use Capistrano for deployment
+gem 'capistrano-rvm', group: :development
 gem 'capistrano-rails', group: :development
 gem 'capistrano-bundler', group: :development
 gem 'capistrano-passenger', group: :development
