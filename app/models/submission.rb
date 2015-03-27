@@ -3,5 +3,5 @@ class Submission < ActiveRecord::Base
   belongs_to :code
 
   has_attached_file :graphic
-  validates_attachment_content_type :graphic, :content_type => /\Aimage\/.*\Z/
+  do_not_validate_attachment_file_type :graphic
 end
