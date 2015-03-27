@@ -29,6 +29,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'omniauth-twitter'
 
+# CanCanCan for authorization
+gem 'cancancan'
+
 # File attachments for user submissions
 gem 'paperclip'
 
