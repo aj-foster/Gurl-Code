@@ -36,20 +36,20 @@ class CodesController < ApplicationController
 
   def edit
 
-    unless can? :update, Code
+    @code = Code.find(params[:id])
+
+    unless can? :update, @code
       return redirect_to root_path, alert: "You aren't allowed to edit codes."
     end
-
-    @code = Code.find(params[:id])
   end
 
   def update
 
-    unless can? :update, Code
+    @code = Code.find(params[:id])
+
+    unless can? :update, @code
       return redirect_to root_path, alert: "You aren't allowed to edit codes."
     end
-
-    @code = Code.find(params[:id])
 
     if @code.update(params[:code])
       redirect_to codes_path, notice: "Code updated successfully!"
@@ -60,11 +60,11 @@ class CodesController < ApplicationController
 
   def destroy
 
-    unless can? :destroy, Code
+    @code = Code.find(params[:id])
+
+    unless can? :destroy, @code
       return redirect_to root_path, alert: "You aren't allowed to delete codes."
     end
-
-    @code = Code.find(params[:id])
 
     if @code.destroy
       redirect_to codes_path, notice: "Code removed successfully!"
