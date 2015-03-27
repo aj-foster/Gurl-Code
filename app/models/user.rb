@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
       user.email = "#{auth.uid}@#{auth.provider}.localhost.local"
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name
+      user.handle = auth.info.nickname
     end
   end
 end
