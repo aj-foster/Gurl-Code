@@ -10,3 +10,8 @@ code_to_be_destroyed_1:
 
 code_to_be_destroyed_2:
   title: Some title
+
+featured_code:
+  title: Featured code
+  message: Some message
+  status: Featured

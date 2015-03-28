@@ -12,10 +12,13 @@ class SubmissionsController < ApplicationController
       return redirect_to root_path, alert: "It looks like you've already voted"
     end
 
+    @submission.increment! :votes
+    current_user.update(recent_vote: @code.id)
+
     if request.xhr?
       render nothing: true, status: 200
     else
-      puts "Success, non-xhr request"
+      render nothing: true, status: 200
     end
   end
 end
