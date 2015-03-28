@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   
   devise_for :users, controllers: { omniauth_callbacks: "users" }
 
-  # root 'pages#home'
-  root 'pages#coming_soon'
+  root 'pages#home'
+  # root 'pages#coming_soon'
 
   resources :codes, only: [:index, :new, :create, :edit, :update, :destroy]
+  put 'submissions/:id/vote', to: 'submissions#vote', as: 'vote'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
