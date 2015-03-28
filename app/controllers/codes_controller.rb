@@ -6,8 +6,8 @@ class CodesController < ApplicationController
       return redirect_to root_path, alert: "You aren't allowed to view codes."
     end
 
-    @queued = Codes.where(status: "queued")
-    @codes = Codes.where.not(status: ["queued", "used"])
+    @queued = Code.where(status: "queued")
+    @codes = Code.where.not(status: ["queued", "used"])
   end
 
   def new
