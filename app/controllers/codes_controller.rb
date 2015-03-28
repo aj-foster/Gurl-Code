@@ -25,7 +25,7 @@ class CodesController < ApplicationController
       return redirect_to root_path, alert: "You aren't allowed to create codes."
     end
 
-    @code = Code.create(params[:code])
+    @code = Code.create(code_params)
 
     if @code.save
       redirect_to codes_path, notice: "Code created successfully!"
@@ -51,7 +51,7 @@ class CodesController < ApplicationController
       return redirect_to root_path, alert: "You aren't allowed to edit codes."
     end
 
-    if @code.update(params[:code])
+    if @code.update(code_params)
       redirect_to codes_path, notice: "Code updated successfully!"
     else
       render :edit
@@ -71,5 +71,12 @@ class CodesController < ApplicationController
     else
       redirect_to codes_path, alert: "Error: Code could not be removed."
     end
+  end
+
+
+  private
+
+  def code_params
+    params.require(:code).permit!
   end
 end
