@@ -1,11 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  message: MyText
-  status: MyString
+code:
+  title: Code title
+  message: Code message
+  status: Code status
 
-two:
-  title: MyString
-  message: MyText
-  status: MyString
+code_to_be_destroyed_1:
+  title: Some title
+
+code_to_be_destroyed_2:
+  title: Some title

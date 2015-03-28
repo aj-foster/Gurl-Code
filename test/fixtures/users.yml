@@ -1,11 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# one:
-#   name: MyString
-#   role: MyString
-#   status: MyString
+admin:
+  name: Admin User
+  role: Admin
+  email: admin@gurlcode.test
 
-# two:
-#   name: MyString
-#   role: MyString
-#   status: MyString
+user:
+  name: Basic User
+  email: basic@gurlcode.test
