@@ -5,11 +5,11 @@ class SubmissionsController < ApplicationController
     @code = @submission.code
 
     if @code.status != "Featured"
-      return redirect_to root_path, alert: "Voting isn't available for that submission"
+      return redirect_to root_path, status: 303, alert: "Voting isn't available for that submission"
     end
 
     if current_user.recent_vote == @code.id
-      return redirect_to root_path, alert: "It looks like you've already voted"
+      return redirect_to root_path, status: 303, alert: "It looks like you've already voted"
     end
 
     @submission.increment! :votes

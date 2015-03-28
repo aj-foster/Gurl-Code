@@ -1,1 +1,9 @@
 Home Page
+
+<% if @code.nil? %>
+  <p>No code to display.</p>
+<% else %>
+  <p>Code: <%= @code.title %></p>
+  <p>Submissions: <%= @submissions.inspect %></p>
+  <p><%= link_to "Vote on One", vote_path(@submissions.first), method: :put, remote: true %></p>
+<% end %>
