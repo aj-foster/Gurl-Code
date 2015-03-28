@@ -1,0 +1,14 @@
+<div>
+  <%= form_for @code do |f| %>
+    <p>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </p>
+    <p>
+      <%= f.label :message %><br>
+      <%= f.text_field :message %>
+    </p>
+    <p>Status... isn't changeable right now.</p>
+    <p><%= f.submit %></p>
+  <% end %>
+</div>

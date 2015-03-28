@@ -1,0 +1,12 @@
+<div>
+<% if @codes.any? %>
+  <% @codes.each do |code| %>
+    <div>
+      Code: <%= code.title %> -
+      <%= link_to "Edit", edit_code_path(code) %>
+    </div>
+  <% end %>
+<% else %>
+    <div>There are no codes.</div>
+<% end %>
+</div>
