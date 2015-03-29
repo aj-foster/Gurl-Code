@@ -1,9 +1,7 @@
-Home Page
-
-<% if @code.nil? %>
-  <p>No code to display.</p>
-<% else %>
-  <p>Code: <%= @code.title %></p>
-  <p>Submissions: <%= @submissions.inspect %></p>
-  <p><%= link_to "Vote on One", vote_path(@submissions.first), method: :put, remote: true %></p>
+      <div class="feature">
+<% @submissions.each do |sub| %>
+        <div class="feature-img">
+          <%= image_tag sub.graphic.url %>
+        </div>
 <% end %>
+      </div>
