@@ -99,4 +99,38 @@ class CodesControllerTest < ActionController::TestCase
       delete :destroy, id: codes(:code_to_be_destroyed_2).id
     end
   end
+
+  # codes#queue
+  test "queue code for admins" do
+    admin = users(:admin)
+    sign_in admin
+    assert_difference "Code.where(status: 'Queued').count", 1, "Failed to queue code for an admin user" do
+      put :queue, id: codes(:code_to_be_queued_1).id
+    end
+  end
+
+  test "protect code queueing from non-admins" do
+    user = users(:user)
+    sign_in user
+    assert_no_difference "Code.where(status: 'Queued').count", "Queued code for a non-admin user" do
+      put :queue, id: codes(:code_to_be_queued_2).id
+    end
+  end
+
+  # codes#dequeue
+  test "dequeue code for admins" do
+    admin = users(:admin)
+    sign_in admin
+    assert_difference "Code.where(status: 'Queued').count", -1, "Failed to dequeue code for an admin user" do
+      put :dequeue, id: codes(:code_to_be_dequeued_1).id
+    end
+  end
+
+  test "protect code dequeueing from non-admins" do
+    user = users(:user)
+    sign_in user
+    assert_no_difference "Code.where(status: 'Queued').count", "Deueued code for a non-admin user" do
+      put :dequeue, id: codes(:code_to_be_dequeued_2).id
+    end
+  end
 end

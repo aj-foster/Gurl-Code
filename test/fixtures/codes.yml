@@ -11,6 +11,20 @@ code_to_be_destroyed_1:
 code_to_be_destroyed_2:
   title: Some title
 
+code_to_be_queued_1:
+  title: Some title
+
+code_to_be_queued_2:
+  title: Some title
+
+code_to_be_dequeued_1:
+  title: Some title
+  status: Queued
+
+code_to_be_dequeued_2:
+  title: Some title
+  status: Queued
+
 featured_code:
   title: Featured code
   message: Some message

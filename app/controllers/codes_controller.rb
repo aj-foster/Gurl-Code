@@ -93,7 +93,7 @@ class CodesController < ApplicationController
 
     @code = Code.find(params[:id])
 
-    unless can? :queue, @code
+    unless can? :dequeue, @code
       return redirect_to root_path, alert: "You aren't allowed to dequeue codes."
     end
 
