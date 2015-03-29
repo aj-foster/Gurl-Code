@@ -28,7 +28,7 @@ class CodesController < ApplicationController
 
     @code = Code.create(code_params)
 
-    if @code.save
+    if @code.persisted?
       redirect_to codes_path, notice: "Code created successfully!"
     else
       render :new
