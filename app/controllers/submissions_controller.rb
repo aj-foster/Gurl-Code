@@ -1,5 +1,30 @@
 class SubmissionsController < ApplicationController
 
+  def new
+    unless can? :create, Submission
+      return redirect_to root_path, alert: "You aren't allowed to submit artwork."
+    end
+
+    @code = Code.find(params[:id])
+    @submission = @code.submissions.new
+  end
+
+  def create
+    unless can? :create, Submission
+      return redirect_to root_path, alert: "You aren't allowed to submit artwork."
+    end
+
+    @code = Code.find(params[:id])
+    @submission = @code.submissions.create(submission_params)
+
+    if @submission.persisted?
+      redirect_to codes_path, notice: "Submission added successfully!"
+    else
+      render :new
+    end
+
+  end
+
   def vote
     @submission = Submission.find(params[:id])
     @code = @submission.code
@@ -21,4 +46,10 @@ class SubmissionsController < ApplicationController
       render nothing: true, status: 200
     end
   end
+
+  private
+
+    def submission_params
+      params.require(:submission).permit!
+    end
 end

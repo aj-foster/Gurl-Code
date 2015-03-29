@@ -29,5 +29,7 @@ Capfile
 .capistrano
 config/deploy
 config/deploy.rb
-
 config/environments/production.rb
+
+# Ignore files uploaded via paperclip
+public/system

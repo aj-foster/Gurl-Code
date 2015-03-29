@@ -1,33 +1,32 @@
 <% title "Codes" %>
 <% if @feature.present? %>
   <% code = @feature %>
-      <div class="list">
+      <div class="list plm prm">
         <div class="subtitle">Featured Code</div>
         <div class="list-item mbm">
           <div class="list list--inline list--flex">
             <div class="list-item list-item--grow ellipsis mrm">
               <%= code.title %><br>
-              <%= pluralize(code.submissions.size, "submission") %>
+              <span class="tsxs"><%= pluralize(code.submissions.size, "submission") %></span>
             </div>
-            <%= link_to "Edit", edit_code_path(code), class: "list-item mrm" %>
-            <%= link_to "Dequeue", dequeue_code_path(code), method: :put, class: "list-item mrm" %>
-            <%= link_to "Remove", edit_code_path(code), method: :delete, class: "list-item" %>
+            <%= link_to "Edit", edit_code_path(code), class: "list-item" %>
           </div>
         </div>
       </div>
 <% end %>
 
 <% if @queued.any? %>
-      <div class="list">
+      <div class="list plm prm">
         <div class="subtitle">Queued <%= pluralize!(@queued.size, "Code") %></div>
   <% @queued.each do |code| %>
         <div class="list-item mbm">
           <div class="list list--inline list--flex">
             <div class="list-item list-item--grow ellipsis mrm">
               <%= code.title %><br>
-              <%= pluralize(code.submissions.size, "submission") %>
+              <span class="tsxs"><%= pluralize(code.submissions.size, "submission") %></span>
             </div>
             <%= link_to "Edit", edit_code_path(code), class: "list-item mrm" %>
+            <%= link_to "Submit", new_submission_path(code), class: "list-item mrm" %>
             <%= link_to "Dequeue", dequeue_code_path(code), method: :put, class: "list-item mrm" %>
             <%= link_to "Remove", edit_code_path(code), method: :delete, class: "list-item" %>
           </div>
@@ -37,16 +36,17 @@
 <% end %>
 
 <% if @codes.any? %>
-      <div class="list">
+      <div class="list plm prm">
         <div class="subtitle">Other <%= pluralize!(@codes.size, "Code") %></div>
   <% @codes.each do |code| %>
         <div class="list-item mbm">
           <div class="list list--inline list--flex">
             <div class="list-item list-item--grow ellipsis mrm">
               <%= code.title %><br>
-              <%= pluralize(code.submissions.size, "submission") %>
+              <span class="tsxs"><%= pluralize(code.submissions.size, "submission") %></span>
             </div>
             <%= link_to "Edit", edit_code_path(code), class: "list-item mrm" %>
+            <%= link_to "Submit", new_submission_path(code), class: "list-item mrm" %>
             <%= link_to "Queue", queue_code_path(code), method: :put, class: "list-item mrm" %>
             <%= link_to "Remove", edit_code_path(code), method: :delete, class: "list-item" %>
           </div>

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :codes, only: [:index, :new, :create, :edit, :update, :destroy] do
     member do
+      resources :submissions, only: [:new, :create, :edit, :update, :destroy]
       put 'queue', as: 'queue'
       put 'dequeue', as: 'dequeue'
     end
