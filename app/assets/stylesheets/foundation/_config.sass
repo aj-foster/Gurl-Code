@@ -9,11 +9,14 @@
 //   @font-face
 // -------------------------------------
 
-// ----- Open Sans ----- //
+// ----- Geared----- //
 
-// +font-face('OpenSans', 'OpenSans')
-// +font-face('OpenSans', 'OpenSansBold', bold)
-// +font-face('OpenSans', 'OpenSansItalic', normal, italic)
+@font-face
+  font-family: 'Geared'
+  src: font-url('geared.eot')
+  src: font-url('geared.eot?#iefix') format('embedded-opentype'), font-url('geared.woff2') format('woff2'), font-url('geared.woff') format('woff'), font-url('geared.ttf') format('truetype'), font-url('geared.svg#geared_slabbold') format('svg')
+  font-weight: normal
+  font-style: normal
 
 // -------------------------------------
 //   Colors
@@ -22,16 +25,21 @@
 // ----- Palette ----- //
 
 $plum: #4e4e5b
+$grey: #c0bec0
+$accent: #e74865
+$white: #fdfaf4
+$black: #231f20
 
 // ----- Base ----- //
 
 $c-background-invert: #fff
-$c-background: #ecf0f1
+$c-background: $white
 $c-border: lighten($plum, 30%)
-$c-highlight: $plum
+$c-header: $grey
+$c-highlight: $accent
 $c-subdue: lighten($plum, 40%)
 $c-text-invert: #fff
-$c-text: #444
+$c-text: $black
 
 // ----- Components ----- //
 
@@ -55,8 +63,8 @@ $b-boxShadow: 0 2px 0 rgba($c-text, 0.25)
 
 // ----- Typography ----- //
 
-$b-fontFamily-heading: sans-serif
-$b-fontFamily: sans-serif
+$b-fontFamily-heading: 'Geared', serif
+$b-fontFamily: 'Roboto', Helvetica, sans-serif
 $b-fontSize: 16px
 $b-fontSize-xs: 75%
 $b-fontSize-s: 90%
