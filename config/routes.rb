@@ -7,7 +7,13 @@ Rails.application.routes.draw do
   get 'gallery', to: 'pages#gallery', as: 'gallery'
   # root 'pages#coming_soon'
 
-  resources :codes, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :codes, only: [:index, :new, :create, :edit, :update, :destroy] do
+    member do
+      put 'queue', as: 'queue'
+      put 'dequeue', as: 'dequeue'
+    end
+  end
+
   put 'submissions/:id/vote', to: 'submissions#vote', as: 'vote'
 
   # Example of regular route:

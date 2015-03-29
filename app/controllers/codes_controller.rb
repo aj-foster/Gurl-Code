@@ -6,8 +6,9 @@ class CodesController < ApplicationController
       return redirect_to root_path, alert: "You aren't allowed to view codes."
     end
 
-    @queued = Code.where(status: "queued")
-    @codes = Code.where.not(status: ["queued", "used"])
+    @feature = Code.includes(:submissions).where(status: "Featured").first
+    @queued = Code.includes(:submissions).where(status: "Queued")
+    @codes = Code.includes(:submissions).where.not(status: ["Queued", "Used", "Featured"])
   end
 
   def new
@@ -70,6 +71,36 @@ class CodesController < ApplicationController
       redirect_to codes_path, notice: "Code removed successfully!"
     else
       redirect_to codes_path, alert: "Error: Code could not be removed."
+    end
+  end
+
+  def queue
+
+    @code = Code.find(params[:id])
+
+    unless can? :queue, @code
+      return redirect_to root_path, alert: "You aren't allowed to queue codes."
+    end
+
+    if @code.update(status: "Queued")
+      redirect_to codes_path, notice: "Code queued successfully!"
+    else
+      redirect_to codes_path, alert: "Error: Code could not be queued."
+    end
+  end
+
+  def dequeue
+
+    @code = Code.find(params[:id])
+
+    unless can? :queue, @code
+      return redirect_to root_path, alert: "You aren't allowed to dequeue codes."
+    end
+
+    if @code.update(status: "")
+      redirect_to codes_path, notice: "Code dequeued successfully!"
+    else
+      redirect_to codes_path, alert: "Error: Code could not be dequeued."
     end
   end
 
