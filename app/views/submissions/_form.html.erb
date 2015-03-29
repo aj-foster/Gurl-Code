@@ -1,0 +1,7 @@
+<%= form_for @submission, html: {multipart: true} do |f| %>
+  <p>
+    <%= f.label :graphic %>
+    <%= f.file_field :graphic %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
