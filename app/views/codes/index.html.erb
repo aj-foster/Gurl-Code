@@ -1,7 +1,7 @@
 <% title "Codes" %>
 <% if @feature.present? %>
   <% code = @feature %>
-      <div class="list plm prm">
+      <div class="list plm prm mtm">
         <div class="subtitle">Featured Code</div>
         <div class="list-item mbm">
           <div class="list list--inline list--flex">
@@ -9,7 +9,10 @@
               <%= code.title %><br>
               <span class="tsxs"><%= pluralize(code.submissions.size, "submission") %></span>
             </div>
-            <%= link_to "Edit", edit_code_path(code), class: "list-item" %>
+            
+            <%= link_to edit_code_path(code), class: "list-item", title: "Edit" do %>
+              <svg class="icon icon-edit"><use xlink:href="#icon-edit"></use></svg>
+            <% end %>
           </div>
         </div>
       </div>
@@ -25,10 +28,18 @@
               <%= code.title %><br>
               <span class="tsxs"><%= pluralize(code.submissions.size, "submission") %></span>
             </div>
-            <%= link_to "Edit", edit_code_path(code), class: "list-item mrm" %>
-            <%= link_to "Submit", new_submission_path(code), class: "list-item mrm" %>
-            <%= link_to "Dequeue", dequeue_code_path(code), method: :put, class: "list-item mrm" %>
-            <%= link_to "Remove", edit_code_path(code), method: :delete, class: "list-item" %>
+            <%= link_to edit_code_path(code), class: "list-item mrm", title: "Edit" do %>
+              <svg class="icon icon-edit"><use xlink:href="#icon-edit"></use></svg>
+            <% end %>
+            <%= link_to new_submission_path(code), class: "list-item mrm", title: "Submit Graphic" do %>
+              <svg class="icon icon-upload"><use xlink:href="#icon-upload"></use></svg>
+            <% end %>
+            <%= link_to dequeue_code_path(code), method: :put, class: "list-item mrm", title: "Dequeue" do %>
+              <svg class="icon icon-redo"><use xlink:href="#icon-redo"></use></svg>
+            <% end %>
+            <%= link_to edit_code_path(code), method: :delete, class: "list-item", title: "Remove", data: {confirm: "Are you sure you want to remove the code \"#{code.title}\"?"} do %>
+              <svg class="icon icon-cross"><use xlink:href="#icon-cross"></use></svg>
+            <% end %>
           </div>
         </div>
   <% end %>
@@ -45,10 +56,18 @@
               <%= code.title %><br>
               <span class="tsxs"><%= pluralize(code.submissions.size, "submission") %></span>
             </div>
-            <%= link_to "Edit", edit_code_path(code), class: "list-item mrm" %>
-            <%= link_to "Submit", new_submission_path(code), class: "list-item mrm" %>
-            <%= link_to "Queue", queue_code_path(code), method: :put, class: "list-item mrm" %>
-            <%= link_to "Remove", edit_code_path(code), method: :delete, class: "list-item" %>
+            <%= link_to edit_code_path(code), class: "list-item mrm", title: "Edit" do %>
+              <svg class="icon icon-edit"><use xlink:href="#icon-edit"></use></svg>
+            <% end %>
+            <%= link_to new_submission_path(code), class: "list-item mrm", title: "Submit Graphic" do %>
+              <svg class="icon icon-upload"><use xlink:href="#icon-upload"></use></svg>
+            <% end %>
+            <%= link_to queue_code_path(code), method: :put, class: "list-item mrm", title: "Queue" do %>
+              <svg class="icon icon-check"><use xlink:href="#icon-check"></use></svg>
+            <% end %>
+            <%= link_to edit_code_path(code), method: :delete, class: "list-item", title: "Remove", data: {confirm: "Are you sure you want to remove the code \"#{code.title}\"?"} do %>
+              <svg class="icon icon-cross"><use xlink:href="#icon-cross"></use></svg>
+            <% end %>
           </div>
         </div>
   <% end %>
