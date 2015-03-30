@@ -1,7 +1,22 @@
       <div class="feature">
 <% @submissions.each do |sub| %>
-        <div class="feature-img">
-          <%= image_tag sub.graphic.url %>
+        <div class="feature-wrap">
+          <div class="feature-img has-hover" style="background-image: url(<%= sub.graphic.url %>)" href="#">
+            <div class="feature-hover">
+              <div class="feature-vote">
+<% if user_signed_in? %>
+  <% if current_user.recent_vote == @code.id %>
+                <%= sub.votes %>
+  <% else %>
+                <%= link_to "Vote", vote_path(sub), method: :put, remote: true, class: "tdn" %>
+  <% end %>
+<% else %>
+                <%= link_to "Vote", new_user_session_path, class: "tdn" %>
+<% end %>
+              </div>
+              <div class="feature-artist"><%= sub.user.nil? ? "Anonymous" : sub.user.name %></div>
+            </div>
+          </div>
         </div>
 <% end %>
       </div>

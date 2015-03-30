@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).on('touchstart', function (e) {
+  $(".hover").removeClass('hover');
+})
+
+$(document).on('touchend', '.has-hover', function (e) {
+  $(this).addClass('hover');
+});
