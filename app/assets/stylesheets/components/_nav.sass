@@ -1,6 +1,13 @@
 .nav
   align-items: center
+  font-size: 0.5em
   justify-content: center
+
+  +respond-to(4.25em * 8 + 2em)
+    font-size: 0.75em
+
+  +respond-to(5.375em * 8 + 2em)
+    font-size: 1em
 
 .nav-item
   color: $c-text
