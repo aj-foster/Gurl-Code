@@ -1,6 +1,6 @@
 .header
   background-color: $c-header
-  margin-bottom: 1em
+  background-color: rgba(185, 183, 185, 0.9)
   position: relative
   text-align: center
 
@@ -21,3 +21,32 @@
   height: 0
   position: absolute
   right: 0
+
+.header-tab
+  display: none
+
+  +respond-to($s-twocol)
+
+    bottom: -1em
+    display: block
+    left: 50%
+    position: absolute
+    right: 50%
+
+    &:before
+      border-right: 1em solid $c-background
+      border-top: 1em solid $c-header
+      bottom: 0
+      content: ""
+      height: 0
+      left: 0
+      position: absolute
+
+    &:after
+      border-left: 1em solid $c-background
+      border-top: 1em solid $c-header
+      bottom: 0
+      content: ""
+      height: 0
+      position: absolute
+      right: 0
