@@ -13,7 +13,7 @@
       <header class="header">
         <nav class="nav list list--inline list--flex">
 <% if current_page?(controller: "/pages", action: "gallery") %>
-          
+          <%= link_to "Gallery", gallery_path, class: "nav-item list-item is-active" %>
 <% else %>
           <%= link_to "Gallery", gallery_path, class: "nav-item list-item" %>
 <% end %>
