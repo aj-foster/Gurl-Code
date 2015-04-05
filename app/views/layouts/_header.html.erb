@@ -10,21 +10,23 @@
           </symbol>
         </defs>
       </svg>
+<% unless current_page?(controller: "/pages", action: "coming_soon") %>
       <header class="header">
         <nav class="nav list list--inline list--flex">
-<% if current_page?(controller: "/pages", action: "gallery") %>
+  <% if current_page?(controller: "/pages", action: "gallery") %>
           <%= link_to "Gallery", gallery_path, class: "nav-item list-item is-active" %>
-<% else %>
+  <% else %>
           <%= link_to "Gallery", gallery_path, class: "nav-item list-item" %>
-<% end %>
+  <% end %>
           <%= link_to root_path, class: "nav-item nav-feature list-item " do %>
             Gurl C<svg class="icon icon-asterisk"><use xlink:href="#icon-asterisk"></use></svg>de
           <% end %>
-<% if current_page?(controller: "/pages", action: "about") %>
+  <% if current_page?(controller: "/pages", action: "about") %>
           <%= link_to "About", about_path, class: "nav-item list-item is-active" %>
-<% else %>
+  <% else %>
           <%= link_to "About", about_path, class: "nav-item list-item" %>
-<% end %>
+  <% end %>
         </nav>
         <div class="header-tab"></div>
       </header>
+<% end %>

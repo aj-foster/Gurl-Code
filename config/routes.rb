@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   
   devise_for :users, controllers: { omniauth_callbacks: "users" }
 
-  root 'pages#home'
+  # root 'pages#home'
   get 'about', to: 'pages#about', as: 'about'
   get 'gallery', to: 'pages#gallery', as: 'gallery'
-  # root 'pages#coming_soon'
+  root 'pages#coming_soon'
+  get 'home', to: 'pages#home', as: 'home'
 
   resources :codes, only: [:index, :new, :create, :edit, :update, :destroy] do
     member do
