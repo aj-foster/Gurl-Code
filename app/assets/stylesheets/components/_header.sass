@@ -5,8 +5,9 @@
   text-align: center
 
 .header:before
+  background: $b-background
   border-top: 1em solid $c-header
-  border-left: 1em solid $c-background
+  border-left: 1em solid transparent
   bottom: 0
   content: ""
   height: 0
@@ -15,7 +16,7 @@
 
 .header:after
   border-top: 1em solid $c-header
-  border-right: 1em solid $c-background
+  border-right: 1em solid transparent
   bottom: 0
   content: ""
   height: 0
@@ -34,7 +35,7 @@
     right: 50%
 
     &:before
-      border-right: 1em solid $c-background
+      border-right: 1em solid transparent
       border-top: 1em solid $c-header
       bottom: 0
       content: ""
@@ -43,7 +44,7 @@
       position: absolute
 
     &:after
-      border-left: 1em solid $c-background
+      border-left: 1em solid transparent
       border-top: 1em solid $c-header
       bottom: 0
       content: ""
