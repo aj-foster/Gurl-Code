@@ -1,0 +1,37 @@
+.msg
+  bottom: -3em
+  color: $c-text-invert
+  max-width: $b-maxWidth-xs
+  min-width: em(288px)
+  padding: 1em 1.5em
+  position: fixed
+  opacity: 0
+  width: 100%
+  z-index: 4
+
+  +respond-to($b-maxWidth-xs)
+    border-radius: 2px
+    margin: 0 1em
+    max-width: $b-maxWidth-xs
+    width: auto
+
+  transition: opacity 0.2s, bottom 0.2s
+
+.msg--alert
+  background-color: $c-danger-bg
+
+.msg--notice
+  background-color: $c-msg-bg
+
+.msg.is-visible
+  bottom: 0
+  opacity: 1
+  
+  +respond-to($b-maxWidth-xs)
+    bottom: 1em
+
+.msg--noscript
+  opacity: 1
+  position: static
+  margin-top: 1em
+  max-width: 100%

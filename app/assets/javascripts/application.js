@@ -17,8 +17,24 @@
 
 $(document).on('touchstart', function (e) {
   $(".hover").removeClass('hover');
-})
+});
 
 $(document).on('touchend', '.has-hover', function (e) {
   $(this).addClass('hover');
+});
+
+$(document).on('ready page:load', function () {
+
+  $(".msg").each(function (index) {
+
+    element = $(this);
+
+    setTimeout(function () {
+      element.addClass('is-visible');
+    }, index * 6000);
+
+    setTimeout(function () {
+      element.removeClass('is-visible');
+    }, index * 6000 + 5500);
+  });
 });
