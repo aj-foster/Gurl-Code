@@ -3,5 +3,26 @@
     <%= f.label :graphic %>
     <%= f.file_field :graphic %>
   </p>
+
+  <p>
+    <%= f.label :artist, "Artist Name" %>
+    <%= f.text_field :artist %>
+  </p>
+  <p>
+    <%= f.label :website %>
+    <%= f.text_field :website %>
+  </p>
+  <p>
+    <%= f.label :facebook, "Facebook Link" %>
+    <%= f.text_field :facebook %>
+  </p>
+  <p>
+    <%= f.label :twitter, "Twitter Link" %>
+    <%= f.text_field :twitter %>
+  </p>
+  <p>
+    <%= f.label :pinterest, "Pinterest Link" %>
+    <%= f.text_field :pinterest %>
+  </p>
   <p><%= f.submit %></p>
 <% end %>
