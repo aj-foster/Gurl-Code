@@ -25,7 +25,7 @@
           <% end %>
         <% end %>
       <% else %>
-                <%= link_to "Vote", vote_path(sub), method: :put, remote: true, class: "tdn" %>
+                <%= link_to "Vote", vote_path(sub), method: :put, class: "tdn" %>
       <% end %>
     <% else %>
                 <%= link_to "Vote", new_user_session_path, class: "tdn" %>

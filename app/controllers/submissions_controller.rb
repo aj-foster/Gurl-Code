@@ -40,11 +40,13 @@ class SubmissionsController < ApplicationController
     @submission.increment! :votes
     current_user.update(recent_vote: @code.id)
 
-    if request.xhr?
-      render nothing: true, status: 200
-    else
-      render nothing: true, status: 200
-    end
+    # if request.xhr?
+    #   render nothing: true, status: 200
+    # else
+    #   render nothing: true, status: 200
+    # end
+
+    redirect_to root_path, notice: "Your vote was successful!"
   end
 
   private
