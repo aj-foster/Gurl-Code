@@ -1,51 +1,53 @@
       <div class="feature">
-<% @submissions.each_with_index do |sub, index| %>
+<% unless @submissions.nil? %>
+  <% @submissions.each_with_index do |sub, index| %>
         <div class="feature-wrap">
           <div class="feature-img has-hover" style="background-image: url(<%= sub.graphic.url %>)" href="#">
             <div class="feature-hover">
               <div class="feature-vote">
-  <% if user_signed_in? %>
-    <% if current_user.recent_vote == @code.id %>
+    <% if user_signed_in? %>
+      <% if current_user.recent_vote == @code.id %>
                 <%= sub.votes %>
-      <% percentage = sub.votes / @total %>
-      <% if index == 0 %>
+        <% percentage = sub.votes / @total %>
+        <% if index == 0 %>
                 <div class="half half--filled half--left"></div>
-        <% if percentage >= 0.5 %>
+          <% if percentage >= 0.5 %>
                 <div class="half half--filled half--left" data-rotate="<%= -(360 * (percentage - 0.5)).round %>"></div>
-        <% else %>
+          <% else %>
                 <div class="half half--empty half--right" data-rotate="<%= (360 * (0.5 - percentage)).round %>"></div>
+          <% end %>
+        <% else %>
+                <div class="half half--filled half--right"></div>
+          <% if percentage >= 0.5 %>
+                <div class="half half--filled half--right" data-rotate="<%= (360 * (percentage - 0.5)).round %>"></div>
+          <% else %>
+                <div class="half half--empty half--left" data-rotate="<%= -(360 * (0.5 - percentage)).round %>"></div>
+          <% end %>
         <% end %>
       <% else %>
-                <div class="half half--filled half--right"></div>
-        <% if percentage >= 0.5 %>
-                <div class="half half--filled half--right" data-rotate="<%= (360 * (percentage - 0.5)).round %>"></div>
-        <% else %>
-                <div class="half half--empty half--left" data-rotate="<%= -(360 * (0.5 - percentage)).round %>"></div>
-        <% end %>
+                <%= link_to "Vote", vote_path(sub), method: :put, remote: true, class: "tdn" %>
       <% end %>
     <% else %>
-                <%= link_to "Vote", vote_path(sub), method: :put, remote: true, class: "tdn" %>
-    <% end %>
-  <% else %>
                 <%= link_to "Vote", new_user_session_path, class: "tdn" %>
-  <% end %>
+    <% end %>
               </div>
               <div class="feature-artist"><%= sub.artist.blank? ? "Anonymous" : sub.artist %></div>
-  <% unless sub.facebook.blank? && sub.twitter.blank? && sub.pinterest.blank? %>
+    <% unless sub.facebook.blank? && sub.twitter.blank? && sub.pinterest.blank? %>
               <div class="feature-share">
-    <% unless sub.pinterest.blank? %>
+      <% unless sub.pinterest.blank? %>
                 <a href="<%= sub.pinterest %>"><svg class="icon icon-pinterest"><use xlink:href="#icon-pinterest"></use></svg></a>
-    <% end %>
-    <% unless sub.twitter.blank? %>
+      <% end %>
+      <% unless sub.twitter.blank? %>
                 <a href="<%= sub.twitter %>"><svg class="icon icon-twitter2"><use xlink:href="#icon-twitter"></use></svg></a>
-    <% end %>
-    <% unless sub.facebook.blank? %>
+      <% end %>
+      <% unless sub.facebook.blank? %>
                 <a href="<%= sub.facebook %>"><svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg></a>
-    <% end %>
+      <% end %>
               </div>
-  <% end %>
+    <% end %>
             </div>
           </div>
         </div>
+  <% end %>
 <% end %>
       </div>
