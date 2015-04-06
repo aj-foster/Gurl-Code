@@ -1,27 +1,32 @@
-      <div class="tac">
-        <%= link_to omniauth_authorize_path(resource_name, :twitter), class: "db tdn tct tsxl mbm mtl" do %>
-          <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
-          Sign in with Twitter
-        <% end %>
+      <div class="cell group">
+        <div class="g-b g-b--s--1of2 prm mtl mbl">
+          <%= link_to omniauth_authorize_path(resource_name, :twitter), class: "db tac tdn tct tsxl ptl" do %>
+            <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
+            Sign in with Twitter
+          <% end %>
+        </div>
+        <div class="g-b g-b--s--1of2 prm mtl mbl">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="tsxl mbs tac">Sign in with E-mail</div>
+            <div class="tal">
+              <div class="field">
+                <%= f.label :email, "Your E-mail" %><br />
+                <%= f.email_field :email, autofocus: true %>
+              </div>
 
-        <div class="mbl">or</div>
+              <div class="field">
+                <%= f.label :password %><br />
+                <%= f.password_field :password, autocomplete: "off" %>
+              </div>
 
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="tsxl mbs">Sign in with E-mail</div>
-          <div class="tal">
-            <div class="field">
-              <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true %>
+              <div class="field">
+                <%= f.submit "Log in" %>
+              </div>
+
+              <div class="field">
+                <%= link_to "Sign Up with E-mail", new_user_registration_path %>
+              </div>
             </div>
-
-            <div class="field">
-              <%= f.label :password %><br />
-              <%= f.password_field :password, autocomplete: "off" %>
-            </div>
-
-            <div class="actions">
-              <%= f.submit "Log in" %>
-            </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
