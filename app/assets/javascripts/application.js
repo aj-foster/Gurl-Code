@@ -37,4 +37,9 @@ $(document).on('ready page:load', function () {
       element.removeClass('is-visible');
     }, index * 6000 + 5500);
   });
+
+  $(".half[data-rotate]").each(function () {
+    console.log('A witch!');
+    $(this).css('transform', 'rotate(' + $(this).attr('data-rotate') + 'deg)');
+  });
 });
