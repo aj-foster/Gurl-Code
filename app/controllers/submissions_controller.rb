@@ -25,6 +25,28 @@ class SubmissionsController < ApplicationController
 
   end
 
+  def edit
+    @submission = Submission.find(params[:id])
+
+    unless can? :update, @submission
+      return redirect_to root_path, alert: "You aren't allowed to edit submissions."
+    end
+  end
+
+  def update
+    @submission = Submission.find(params[:id])
+
+    unless can? :update, @submission
+      return redirect_to root_path, alert: "You aren't allowed to edit submissions."
+    end
+
+    if @submission.update(submission_params)
+      redirect_to codes_path, notice: "Submission updated successfully!"
+    else
+      render :edit
+    end
+  end
+
   def vote
     @submission = Submission.find(params[:id])
     @code = @submission.code
