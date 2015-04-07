@@ -54,7 +54,7 @@
   transition: opacity 0.2s
 
   a
-    transition: visibility 0.2s
+    transition: visibility 0.2s, color 0.2s
     visibility: hidden
 
   &:active, &:focus, &:hover
@@ -80,6 +80,13 @@
   font-family: $b-fontFamily-heading
   font-size: 2em
   letter-spacing: 1px
+
+  a
+    color: $c-text-invert
+    text-decoration: none
+
+  a:active, a:focus, a:hover
+    color: $c-highlight
 
 .feature-share
   border-radius: 4px
