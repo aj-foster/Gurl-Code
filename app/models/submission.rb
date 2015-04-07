@@ -14,6 +14,7 @@ class Submission < ActiveRecord::Base
     self.behance.present?   ||
     self.dribbble.present?  ||
     self.facebook.present?  ||
+    self.instagram.present? ||
     self.pinterest.present? ||
     self.twitter.present?
   end
