@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150405205138) do
+ActiveRecord::Schema.define(version: 20150407163322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,9 @@ ActiveRecord::Schema.define(version: 20150405205138) do
     t.string   "twitter",              default: "", null: false
     t.string   "pinterest",            default: "", null: false
     t.string   "website",              default: "", null: false
+    t.string   "instagram",            default: "", null: false
+    t.string   "dribbble",             default: "", null: false
+    t.string   "behance",              default: "", null: false
   end
 
   add_index "submissions", ["code_id"], name: "index_submissions_on_code_id", using: :btree
