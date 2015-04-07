@@ -9,4 +9,12 @@ class Submission < ActiveRecord::Base
 
   validates :graphic, attachment_presence: true
   validates_attachment_content_type :graphic, content_type: /\Aimage\/.*\Z/
+
+  def has_socials?
+    self.behance.present?   ||
+    self.dribbble.present?  ||
+    self.facebook.present?  ||
+    self.pinterest.present? ||
+    self.twitter.present?
+  end
 end
