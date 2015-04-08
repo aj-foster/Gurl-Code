@@ -1,14 +1,37 @@
 <div>
   <%= form_for @code do |f| %>
-    <div class="field is-required">
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
+    <div class="group">
+      <div class="g-b <%= @code.submissions.any? ? "g-b--m--1of2" : "" %> plm prm">
+        <div class="field is-required">
+          <%= f.label :title %><br>
+          <%= f.text_field :title %>
+        </div>
+        <div class="field">
+          <%= f.label :message %><br>
+          <%= f.text_area :message, class: "textarea" %>
+        </div>
+      </div>
+<% if @code.submissions.any? %>
+      <div class="g-b <%= @code.submissions.any? ? "g-b--m--1of2" : "" %> plm prm">
+        <h3>Current <%= pluralize!(@code.submissions.size, "Submission") %></h3>
+        <div class="group">
+  <% count = @code.submissions.size %>
+  <% @code.submissions.each do |sub| %>
+          <div class="g-b g-b--1of<%= count %> paf">
+    <% if sub.graphic.present? %>
+            <img src="<%= sub.graphic.url %>" alt="Submission">
+    <% else %>
+            <p><em>No graphic present.</em></p>
+    <% end %>
+            <p class="tac"><%= link_to "Edit", edit_code_submission_path(@code, sub), class: "button button--b" %></p>
+          </div>
+  <% end %>
+        </div>
+      </div>
+<% end %>
     </div>
-    <div class="field">
-      <%= f.label :message %><br>
-      <%= f.text_area :message, class: "textarea" %>
-    </div>
-    <div class="field">
+
+    <div class="field pam">
       <%= f.submit class: "button button--a" %>
       <%= link_to "Go Back", codes_path, class: "button button--b" %>
     </div>

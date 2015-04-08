@@ -5,7 +5,7 @@ class SubmissionsController < ApplicationController
       return redirect_to root_path, alert: "You aren't allowed to submit artwork."
     end
 
-    @code = Code.find(params[:id])
+    @code = Code.find(params[:code_id])
     @submission = @code.submissions.new
   end
 
@@ -14,7 +14,7 @@ class SubmissionsController < ApplicationController
       return redirect_to root_path, alert: "You aren't allowed to submit artwork."
     end
 
-    @code = Code.find(params[:id])
+    @code = Code.find(params[:code_id])
     @submission = @code.submissions.create(submission_params)
 
     if @submission.persisted?
@@ -26,6 +26,7 @@ class SubmissionsController < ApplicationController
   end
 
   def edit
+    @code = Code.find(params[:code_id])
     @submission = Submission.find(params[:id])
 
     unless can? :update, @submission
@@ -34,6 +35,7 @@ class SubmissionsController < ApplicationController
   end
 
   def update
+    @code = Code.find(params[:code_id])
     @submission = Submission.find(params[:id])
 
     unless can? :update, @submission

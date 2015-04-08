@@ -33,7 +33,7 @@
               <%= link_to edit_code_path(code), class: "list-item mrm", title: "Edit" do %>
                 <svg class="icon icon-edit"><use xlink:href="<%= image_url("icons.svg") %>#icon-edit"></use></svg>
               <% end %>
-              <%= link_to new_submission_path(code), class: "list-item mrm", title: "Submit Graphic" do %>
+              <%= link_to new_code_submission_path(code), class: "list-item mrm", title: "Submit Graphic" do %>
                 <svg class="icon icon-upload"><use xlink:href="<%= image_url("icons.svg") %>#icon-upload"></use></svg>
               <% end %>
               <%= link_to dequeue_code_path(code), method: :put, class: "list-item mrm", title: "Dequeue" do %>
@@ -61,7 +61,7 @@
               <%= link_to edit_code_path(code), class: "list-item mrm", title: "Edit" do %>
                 <svg class="icon icon-edit"><use xlink:href="<%= image_url("icons.svg") %>#icon-edit"></use></svg>
               <% end %>
-              <%= link_to new_submission_path(code), class: "list-item mrm", title: "Submit Graphic" do %>
+              <%= link_to new_code_submission_path(code), class: "list-item mrm", title: "Submit Graphic" do %>
                 <svg class="icon icon-upload"><use xlink:href="<%= image_url("icons.svg") %>#icon-upload"></use></svg>
               <% end %>
               <%= link_to queue_code_path(code), method: :put, class: "list-item mrm", title: "Queue" do %>

@@ -1,40 +1,56 @@
-<%= form_for @submission, html: {multipart: true} do |f| %>
-  <p>
-    <%= f.label :graphic %>
-    <%= f.file_field :graphic %>
-  </p>
-
-  <p>
-    <%= f.label :artist, "Artist Name" %>
-    <%= f.text_field :artist %>
-  </p>
-  <p>
-    <%= f.label :website %>
-    <%= f.text_field :website %>
-  </p>
-  <p>
-    <%= f.label :behance, "Behance Link" %>
-    <%= f.text_field :behance %>
-  </p>
-  <p>
-    <%= f.label :dribbble, "Dribbble Link" %>
-    <%= f.text_field :dribbble %>
-  </p>
-  <p>
-    <%= f.label :facebook, "Facebook Link" %>
-    <%= f.text_field :facebook %>
-  </p>
-  <p>
-    <%= f.label :instagram, "Instagram Link" %>
-    <%= f.text_field :instagram %>
-  </p>
-  <p>
-    <%= f.label :pinterest, "Pinterest Link" %>
-    <%= f.text_field :pinterest %>
-  </p>
-  <p>
-    <%= f.label :twitter, "Twitter Link" %>
-    <%= f.text_field :twitter %>
-  </p>
-  <p><%= f.submit %></p>
+        <%= form_for [@code, @submission], html: {multipart: true} do |f| %>
+          <div class="group">
+            <div class="g-b <%= @submission.graphic.present? ? "g-b--m--1of2" : "" %> plm prm">
+              <h3>Artist Information</h3>
+              <div class="field">
+                <%= f.label :artist, "Artist Name" %>
+                <%= f.text_field :artist %>
+              </div>
+              <div class="field">
+                <%= f.label :website %>
+                <%= f.text_field :website %>
+              </div>
+              <div class="field">
+                <%= f.label :behance, "Behance Link" %>
+                <%= f.text_field :behance %>
+              </div>
+              <div class="field">
+                <%= f.label :dribbble, "Dribbble Link" %>
+                <%= f.text_field :dribbble %>
+              </div>
+              <div class="field">
+                <%= f.label :facebook, "Facebook Link" %>
+                <%= f.text_field :facebook %>
+              </div>
+              <div class="field">
+                <%= f.label :instagram, "Instagram Link" %>
+                <%= f.text_field :instagram %>
+              </div>
+              <div class="field">
+                <%= f.label :pinterest, "Pinterest Link" %>
+                <%= f.text_field :pinterest %>
+              </div>
+              <div class="field">
+                <%= f.label :twitter, "Twitter Link" %>
+                <%= f.text_field :twitter %>
+              </div>
+            </div>
+            <div class="g-b <%= @submission.graphic.present? ? "g-b--m--1of2" : "" %> plm prm">
+<% if @submission.graphic.present? %>
+              <div class="mbm">
+                <h3>Current Graphic</h3>
+                <img src="<%= @submission.graphic.url %>" alt="Current Submission">
+              </div>
 <% end %>
+              <div class="field">
+                <h3>Upload new graphic</h3>
+                <%= f.file_field :graphic %>
+              </div>
+            </div>
+          </div>
+
+          <div class="field pam">
+            <%= f.submit class: "button button--a" %>
+            <%= link_to "Back to Codes", codes_path, class: "button button--b" %>
+          </div>
+        <% end %>

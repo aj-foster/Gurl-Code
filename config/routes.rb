@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   get 'home', to: 'pages#home', as: 'home'
 
   resources :codes, only: [:index, :new, :create, :edit, :update, :destroy] do
+    resources :submissions, only: [:new, :create, :edit, :update, :destroy]
     member do
-      resources :submissions, only: [:new, :create, :edit, :update, :destroy]
       put 'queue', as: 'queue'
       put 'dequeue', as: 'dequeue'
     end
