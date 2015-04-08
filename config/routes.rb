@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'gallery', to: 'pages#gallery', as: 'gallery'
   # root 'pages#coming_soon'
   # get 'home', to: 'pages#home', as: 'home'
+  get 'coming_soon', to: 'pages#coming_soon', as: 'coming_soon'
 
   resources :codes, only: [:index, :new, :create, :edit, :update, :destroy] do
     resources :submissions, only: [:new, :create, :edit, :update, :destroy]
