@@ -16,9 +16,6 @@
     <div class="main por">
 <%= render 'layouts/header' %>
 <%= render 'layouts/messages' %>
-<% if user_signed_in? && current_user.role == "Admin" %>
-<%= render 'layouts/admin' %>
-<% end %>
 <%= yield %>
 <%= render 'layouts/footer' %>
     </div>
