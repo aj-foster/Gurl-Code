@@ -10,7 +10,7 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="main">
+    <div class="main por">
 <%= render 'layouts/header' %>
 <%= render 'layouts/messages' %>
 <% if user_signed_in? && current_user.role == "Admin" %>
