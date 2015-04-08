@@ -6,13 +6,14 @@
   <% else %>
           <!-- <%= link_to "Gallery", gallery_path, class: "nav-item list-item" %> -->
   <% end %>
+          <%= link_to "Sign In", new_user_session_path, class: "nav-item list-item" %>
           <%= link_to root_path, class: "nav-item nav-feature list-item " do %>
             Gurl C<svg class="icon icon-asterisk"><use xlink:href="<%= image_url("icons.svg") %>#icon-asterisk"></use></svg>de
           <% end %>
   <% if current_page?(controller: "/pages", action: "about") %>
-          <!-- <%= link_to "About", about_path, class: "nav-item list-item is-active" %> -->
+          <%= link_to "About", about_path, class: "nav-item list-item is-active" %>
   <% else %>
-          <!-- <%= link_to "About", about_path, class: "nav-item list-item" %> -->
+          <%= link_to "About", about_path, class: "nav-item list-item" %>
   <% end %>
         </nav>
         <div class="header-tab"></div>
