@@ -1,4 +1,5 @@
-      <div class="plm prm mtm">
-        <div class="subtitle">Editing Code</div>
+<%= title("Edit Code") %>
+      <div class="cell cell--xs">
+        <h1>Editing "<%= @code.title.truncate(20, omission: "...", separator: " ") %>"</h1>
         <%= render 'form' %>
       </div>

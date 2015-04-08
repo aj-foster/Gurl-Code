@@ -1,0 +1,23 @@
+.button
+  border-radius: 0.25em
+  display: inline-block
+  padding: 0.5em
+  text-decoration: none
+
+  // Reset Input Buttons
+  border: 0px none
+  transition: color 0.2s
+
+.button--a
+  background-color: $c-highlight
+  color: $c-text-invert
+
+  &:active, &:hover, &:focus
+    color: $c-text
+
+.button--b
+  background-color: $c-text-invert
+  border: 1px solid $c-text
+
+  &:active, &:hover, &:focus
+    color: $c-text

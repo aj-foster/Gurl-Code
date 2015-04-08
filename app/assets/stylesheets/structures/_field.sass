@@ -5,6 +5,15 @@
   input[type='text'],
   input[type='password'],
   input[type='email'],
-  input[type='tel']
+  input[type='tel'],
+  textarea
 
+    max-width: 100%
     width: 100%
+
+.is-required > label:after
+  color: $c-highlight
+  content: " *"
+
+.textarea
+  min-height: 100px
