@@ -45,6 +45,7 @@
   color: white
   display: flex
   flex-direction: column
+  font-size: 0.75em
   justify-content: center
   left: 0
   opacity: 0
@@ -52,6 +53,9 @@
   right: 0
   top: 0
   transition: opacity 0.2s
+
+  +respond-to($g-m)
+    font-size: 1em
 
   a
     transition: visibility 0.2s, color 0.2s
