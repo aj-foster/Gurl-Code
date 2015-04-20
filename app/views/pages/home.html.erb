@@ -2,7 +2,7 @@
 <% unless @submissions.nil? %>
   <% @submissions.each_with_index do |sub, index| %>
         <div class="feature-wrap">
-          <div class="feature-img has-hover" style="background-image: url(<%= sub.graphic.url %>)" href="#">
+          <div class="feature-img has-hover" style="background-image: url(<%= asset_path(sub.graphic.url) %>)" href="#">
             <div class="feature-hover">
               <div class="feature-vote">
     <% if user_signed_in? %>

@@ -39,7 +39,7 @@
 <% if @submission.graphic.present? %>
               <div class="mbm">
                 <h3>Current Graphic</h3>
-                <img src="<%= @submission.graphic.url %>" alt="Current Submission">
+                <img src="<%= asset_path(@submission.graphic.url) %>" alt="Current Submission">
               </div>
 <% end %>
               <div class="field">

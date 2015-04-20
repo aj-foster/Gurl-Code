@@ -19,7 +19,7 @@
   <% @code.submissions.each do |sub| %>
           <div class="g-b g-b--1of<%= count %> paf">
     <% if sub.graphic.present? %>
-            <img src="<%= sub.graphic.url %>" alt="Submission">
+            <img src="<%= asset_path(sub.graphic.url) %>" alt="Submission">
     <% else %>
             <p><em>No graphic present.</em></p>
     <% end %>
